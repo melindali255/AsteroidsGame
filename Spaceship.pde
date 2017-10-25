@@ -9,9 +9,9 @@ class Spaceship extends Floater
     myColor = 255;   
     myCenterX = 0; 
     myCenterY = 0; 
-    myDirectionX
-      myDirectionY; //holds x and y coordinates of the vector for direction of travel   
-    myPointDirection; //holds current direction the ship is pointing in degrees
+    myDirectionX = 0;
+    myDirectionY = 0;//holds x and y coordinates of the vector for direction of travel   
+    myPointDirection = 0; //holds current direction the ship is pointing in degrees
   }
 
   public void setX(int x) {
