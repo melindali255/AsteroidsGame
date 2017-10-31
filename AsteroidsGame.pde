@@ -1,27 +1,34 @@
 //your variable declarations here
 Spaceship ship;
+Stars[] starArray = new Stars[125];
 public void setup() 
 {
   background(0);
   size(400, 400);
+  for (int i = 0; i < starArray.length; i++) {
+    starArray[i] = new Stars();
+  }
   ship = new Spaceship();
 }
 public void draw() 
 {
   background(0);
+  for (int i = 0; i < starArray.length; i++) {
+    starArray[i].show();
+  }
   ship.show();
   ship.move();
 }
 public void keyPressed() {
   if (key == CODED) {
-    if (keyCode == RIGHT) {
+    if (keyCode == LEFT) {
       ship.turn(-3);
     }
-    else if (keyCode == LEFT) {
+    else if (keyCode == RIGHT) {
       ship.turn(3);
     }
     else if (keyCode == UP) {
-      ship.accelerate(1);
+      ship.accelerate(0.5);
     }
   }
   else if (key == ' ') {
@@ -29,5 +36,6 @@ public void keyPressed() {
     ship.setY((int)(Math.random()*400));
     ship.setDirectionX(0);
     ship.setDirectionY(0);
+    ship.setPointDirection((int)(Math.random()*360));
   }
 }
