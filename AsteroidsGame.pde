@@ -1,4 +1,5 @@
 //your variable declarations here
+Asteroid rock;
 Spaceship ship;
 Stars[] starArray = new Stars[125];
 public void setup() 
@@ -8,6 +9,7 @@ public void setup()
   for (int i = 0; i < starArray.length; i++) {
     starArray[i] = new Stars();
   }
+  rock = new Asteroid();
   ship = new Spaceship();
 }
 public void draw() 
@@ -16,6 +18,8 @@ public void draw()
   for (int i = 0; i < starArray.length; i++) {
     starArray[i].show();
   }
+  rock.move();
+  rock.show();
   ship.show();
   ship.move();
 }

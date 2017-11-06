@@ -1,4 +1,25 @@
 class Asteroid extends Floater {
+  private int rotSpeed;
+  Asteroid() {
+    corners = 9; //the number of corners, a triangular floater has 3   
+    int[] myXCorners = {-8, -4, -3, 4, 7, 8, 4, -3, -8};
+    xCorners = myXCorners;
+    int[] myYCorners = {4, 6, 9, 9, 6, -2, -8, -8, -5};
+    yCorners = myYCorners;
+    myColor = 255;
+    myCenterX = (int)(Math.random()*400);
+    myCenterY = (int)(Math.random()*400);
+    myDirectionX = 0;
+    myDirectionY = 0;//holds x and y coordinates of the vector for direction of travel   
+    myPointDirection = 0; //holds current direction the ship is pointing in degrees
+    rotSpeed = (int)(Math.random()*4 - 2);
+  }
+
+  public void move() {
+    turn(rotSpeed);
+    super.move();
+  }
+
   public void setX(int x) {
     myCenterX = x;
   }  
