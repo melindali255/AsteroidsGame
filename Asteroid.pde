@@ -9,8 +9,8 @@ class Asteroid extends Floater {
     myColor = (int)(Math.random()*50 + 100);
     myCenterX = (int)(Math.random()*400);
     myCenterY = (int)(Math.random()*400);
-    myDirectionX = 0;
-    myDirectionY = 0;//holds x and y coordinates of the vector for direction of travel   
+    myDirectionX = Math.random()*4 - 2;
+    myDirectionY = Math.random()*4 - 2;
     myPointDirection = 0; //holds current direction the ship is pointing in degrees
     rotSpeed = 0;
     while (rotSpeed == 0) {
@@ -21,7 +21,6 @@ class Asteroid extends Floater {
   public void move() {
     turn(rotSpeed);
     super.move();
-    
   }
 
   public void setX(int x) {
