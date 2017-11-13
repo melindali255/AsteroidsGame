@@ -7,8 +7,8 @@ class Spaceship extends Floater
     int[] myYCorners = {-11, -11, -8, -8, 0, 8, 8, 11, 11, 8, 0, -8};
     yCorners = myYCorners;
     myColor = #878DF2;   
-    myCenterX = 0; 
-    myCenterY = 0; 
+    myCenterX = 200; 
+    myCenterY = 200; 
     myDirectionX = 0;
     myDirectionY = 0;//holds x and y coordinates of the vector for direction of travel   
     myPointDirection = 0; //holds current direction the ship is pointing in degrees
