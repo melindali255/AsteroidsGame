@@ -5,7 +5,7 @@ Stars[] starArray = new Stars[125];
 public void setup() 
 {
   background(0);
-  size(400, 400);
+  size(500, 500);
   for (int i = 0; i < starArray.length; i++) {
     starArray[i] = new Stars();
   }
@@ -21,28 +21,31 @@ public void draw()
     starArray[i].show();
   }
   for (int i = 0; i < rock.size(); i++) {
-  rock.get(i).show();
-  rock.get(i).move();
+    rock.get(i).show();
+    rock.get(i).move();
   }
   ship.show();
   ship.move();
+
+  // collision check
+  for (int i = 0; i < rock.size(); i++) {
+    if (dist(rock.get(i).getX(), rock.get(i).getY(), ship.getX(), ship.getY()) < 25) {
+      rock.remove(i);
+    }
+  }
 }
 public void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       ship.turn(-3);
-    }
-    else if (keyCode == RIGHT) {
+    } else if (keyCode == RIGHT) {
       ship.turn(3);
-    }
-    else if (keyCode == UP) {
+    } else if (keyCode == UP) {
       ship.accelerate(0.5);
-    }
-    else if (keyCode == DOWN) {
+    } else if (keyCode == DOWN) {
       ship.accelerate(-0.25);
     }
-  }
-  else if (key == ' ') {
+  } else if (key == ' ') {
     ship.setX((int)(Math.random()*400));
     ship.setY((int)(Math.random()*400));
     ship.setDirectionX(0);

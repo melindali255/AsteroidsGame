@@ -7,8 +7,8 @@ class Asteroid extends Floater {
     int[] myYCorners = {4, 6, 9, 9, 6, -2, -8, -8, -5};
     yCorners = myYCorners;
     myColor = (int)(Math.random()*50 + 100);
-    myCenterX = (int)(Math.random()*400);
-    myCenterY = (int)(Math.random()*400);
+    myCenterX = (int)(Math.random()*500);
+    myCenterY = (int)(Math.random()*500);
     myDirectionX = Math.random()*4 - 2;
     myDirectionY = Math.random()*4 - 2;
     myPointDirection = 0; //holds current direction the ship is pointing in degrees
