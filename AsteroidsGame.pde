@@ -1,6 +1,7 @@
 //your variable declarations here
 ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
 Spaceship ship;
+Bullet bullets;
 Stars[] starArray = new Stars[125];
 public void setup() 
 {
@@ -13,6 +14,7 @@ public void setup()
     rock.add(new Asteroid());
   }
   ship = new Spaceship();
+  bullets = new Bullet(ship);
 }
 public void draw() 
 {
@@ -45,7 +47,7 @@ public void keyPressed() {
     } else if (keyCode == DOWN) {
       ship.accelerate(-0.25);
     }
-  } else if (key == ' ') {
+  } else if (key == ENTER) {
     ship.setX((int)(Math.random()*400));
     ship.setY((int)(Math.random()*400));
     ship.setDirectionX(0);

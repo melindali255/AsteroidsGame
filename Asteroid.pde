@@ -1,4 +1,4 @@
-class Asteroid extends Floater {
+  class Asteroid extends Floater {
   private int rotSpeed;
   Asteroid() {
     corners = 9; //the number of corners, a triangular floater has 3   
