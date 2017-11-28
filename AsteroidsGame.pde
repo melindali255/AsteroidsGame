@@ -1,7 +1,7 @@
 //your variable declarations here
 ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
 Spaceship ship;
-Bullet bullets;
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 Stars[] starArray = new Stars[125];
 public void setup() 
 {
@@ -14,7 +14,6 @@ public void setup()
     rock.add(new Asteroid());
   }
   ship = new Spaceship();
-  bullets = new Bullet(ship);
 }
 public void draw() 
 {
@@ -35,6 +34,12 @@ public void draw()
       rock.remove(i);
     }
   }
+  if (bullets.size() > 0) {
+    for (int i = 0; i < bullets.size(); i++ ) {
+    bullets.get(i).show();
+    bullets.get(i).move();
+    }
+  }
 }
 public void keyPressed() {
   if (key == CODED) {
@@ -53,5 +58,8 @@ public void keyPressed() {
     ship.setDirectionX(0);
     ship.setDirectionY(0);
     ship.setPointDirection((int)(Math.random()*360));
+  }
+  else if (key == ' ') {
+    bullets.add(new Bullet(ship));
   }
 }
