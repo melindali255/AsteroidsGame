@@ -8,11 +8,16 @@ class Bullet extends Floater {
     myColor = #878DF2;   
     myCenterX = theShip.getX(); 
     myCenterY = theShip.getY(); 
-    myDirectionX = 5 * Math.cos(myPointDirection*(Math.PI/180)) + theShip.getDirectionX();
-    myDirectionY = 5 * Math.sin(myPointDirection*(Math.PI/180)) + theShip.getDirectionY();   
     myPointDirection = theShip.getPointDirection(); //holds current direction the ship is pointing in degrees
+    myDirectionX = 5 * Math.cos(myPointDirection*(Math.PI/180)) + theShip.getDirectionX();
+    myDirectionY = 5 * Math.sin(myPointDirection*(Math.PI/180)) + theShip.getDirectionY();
   }
-  
+  public void move() {
+    //change the x and y coordinates by myDirectionX and myDirectionY       
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;
+  }
+
   public void show() {
     fill(myColor);
     ellipse((float)myCenterX, (float)myCenterY, 10, 10);
@@ -47,5 +52,4 @@ class Bullet extends Floater {
   public double getPointDirection() {
     return myPointDirection;
   }
-  
 }

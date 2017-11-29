@@ -36,8 +36,11 @@ public void draw()
   }
   if (bullets.size() > 0) {
     for (int i = 0; i < bullets.size(); i++ ) {
-    bullets.get(i).show();
-    bullets.get(i).move();
+      bullets.get(i).show();
+      bullets.get(i).move();
+      if (bullets.get(i).getX() < 0 || bullets.get(i).getX() > 500 || bullets.get(i).getY() < 0 || bullets.get(i).getY() > 500) {
+        bullets.remove(i);
+      }
     }
   }
 }
@@ -58,8 +61,7 @@ public void keyPressed() {
     ship.setDirectionX(0);
     ship.setDirectionY(0);
     ship.setPointDirection((int)(Math.random()*360));
-  }
-  else if (key == ' ') {
+  } else if (key == ' ') {
     bullets.add(new Bullet(ship));
   }
 }
