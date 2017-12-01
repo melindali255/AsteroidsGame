@@ -2,7 +2,7 @@
 ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
 Spaceship ship;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-Stars[] starArray = new Stars[125];
+Stars[] starArray = new Stars[150];
 public void setup() 
 {
   background(0);
@@ -38,8 +38,10 @@ public void draw()
     for (int i = 0; i < bullets.size(); i++ ) {
       bullets.get(i).show();
       bullets.get(i).move();
-      if (bullets.get(i).getX() < 0 || bullets.get(i).getX() > 500 || bullets.get(i).getY() < 0 || bullets.get(i).getY() > 500) {
-        bullets.remove(i);
+      for (int j = 0; j < rock.size(); j++) {
+        if (dist(rock.get(j).getX(), rock.get(j).getY(), bullets.get(i).getX(), bullets.get(i).getY()) < 25) {
+          rock.remove(j);
+        }
       }
     }
   }
