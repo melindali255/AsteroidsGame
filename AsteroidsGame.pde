@@ -3,6 +3,8 @@ ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
 Spaceship ship;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 Stars[] starArray = new Stars[150];
+Health shipHealth = new Health();
+int score = 0;
 public void setup() 
 {
   background(0);
@@ -27,23 +29,51 @@ public void draw()
   }
   ship.show();
   ship.move();
+  shipHealth.show();
+  //score
+  textAlign(RIGHT);
+  textSize(20);
+  text("Score: " + score, 500, 500);
 
   // collision check
   for (int i = 0; i < rock.size(); i++) {
     if (dist(rock.get(i).getX(), rock.get(i).getY(), ship.getX(), ship.getY()) < 25) {
       rock.remove(i);
+      shipHealth.setHealth(-30);
     }
   }
+  //movement and collision between bullets
   if (bullets.size() > 0) {
     for (int i = 0; i < bullets.size(); i++ ) {
       bullets.get(i).show();
       bullets.get(i).move();
       for (int j = 0; j < rock.size(); j++) {
-        if (dist(rock.get(j).getX(), rock.get(j).getY(), bullets.get(i).getX(), bullets.get(i).getY()) < 25) {
+        if (dist(rock.get(j).getX(), rock.get(j).getY(), bullets.get(i).getX(), bullets.get(i).getY()) < 20) {
           rock.remove(j);
+          bullets.remove(i);
+          score += 10;
+          break;
         }
       }
     }
+  }
+
+  //end game
+  if (shipHealth.getHealth() <= 0) {
+    ship.setDirectionX(0);
+    ship.setDirectionY(0);
+    textAlign(CENTER);
+    textSize(26);
+    fill(#F05A5A);
+    text("GAME OVER", 250, 250);
+  }
+  if (rock.size() == 0) {
+    ship.setDirectionX(0);
+    ship.setDirectionY(0);
+    textAlign(CENTER);
+    textSize(26);
+    fill(#A3D88E);
+    text("YOU WIN", 250, 250);
   }
 }
 public void keyPressed() {
