@@ -73,7 +73,7 @@ public void draw()
     textAlign(CENTER);
     textSize(26);
     fill(#A3D88E);
-    text("YOU WIN", 250, 250);
+    text("YOU WIN!", 250, 250);
   }
 }
 public void keyPressed() {
