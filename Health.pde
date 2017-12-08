@@ -22,6 +22,10 @@ class Health {
     }
   }
   
+  public void restartHealth() {
+    health = 200;
+  }
+  
   public double getHealth() {
     return health;
   }
